@@ -1,0 +1,12 @@
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  mat-form-field {
+    display: block;
+    margin-bottom: 16px;
+  }
+  

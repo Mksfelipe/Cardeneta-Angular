@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-toolbar>
+    <span>Cliente Ativos</span>
+  </mat-toolbar>
+
+  <input type="text" [(ngModel)]="searchTerm " (input)="search() ">
+
+
+  <table mat-table [dataSource]="clients$" class="mat-elevation-z8">
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>#ID</th>
+      <td mat-cell *matCellDef="let client">{{ client.id }}</td>
+    </ng-container>
+    <!-- firstName Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let client">{{ client.firstName }}</td>
+    </ng-container>
+    <!-- lastName Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Sobre Nome</th>
+      <td mat-cell *matCellDef="let client">{{ client.lastName }}</td>
+    </ng-container>
+    <!-- cpf Column -->
+    <ng-container matColumnDef="cpf">
+      <th mat-header-cell *matHeaderCellDef>CPF</th>
+      <td mat-cell *matCellDef="let client">{{ client.cpf }}</td>
+    </ng-container>
+
+    <!-- cpf Column -->
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let client">
+        <button>
+          <a mat-button [routerLink]="['/account', client.accountId]">acessar</a>
+        </button>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageIndex]="number" [length]="totalElements" [pageSize]="size" (page)="handlePageEvent($event)"
+    aria-label="Select page">
+  </mat-paginator>
+
+</mat-card>

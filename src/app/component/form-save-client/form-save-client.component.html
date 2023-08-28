@@ -1,0 +1,28 @@
+<app-home></app-home>
+
+<div class="center-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Formulário</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <input matInput placeholder="Primeiro Nome" formControlName="firstName">
+            <mat-error *ngIf="form.get('firstName')?.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Sobrenome" formControlName="lastName">
+            <mat-error *ngIf="form.get('lastName')?.hasError('required')">Campo obrigatório</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="CPF" formControlName="cpf" maxlength="11" size="11">
+            <mat-error *ngIf="form.get('cpf')?.hasError('required')">Campo obrigatório</mat-error>
+            <mat-error *ngIf="form.get('cpf')?.hasError('invalidCpf')">CPF inválido</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" >Enviar</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

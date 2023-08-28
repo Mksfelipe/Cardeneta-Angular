@@ -1,0 +1,22 @@
+<app-home></app-home>
+
+<div *ngIf="account">
+  <div class="card-list">
+    <div class="card card-total">
+      <h2 class="card__title">Valor Total</h2>
+      <div class="card__total">{{account.totalAmount | currency:'R$'}}</div>
+    </div>
+  
+    <div class="card card-last-payment">
+      <h2 class="card__title">Ultimo Pagamento</h2>
+      <div class="card__date">{{account.lastDataPayment | date:'dd/MM/yyyy hh:mm:ss'}}</div>
+    </div>
+  
+    <div class="card card-days-without-payment">
+      <h2 class="card__title">Quantidade de dias do ultimo Pagamento</h2>
+      <div class="card__days">{{account.daysWithoutPaying}}</div>
+    </div>
+  </div>
+  <app-purchase-list [accountId]="account.id"></app-purchase-list>
+</div>  
+  

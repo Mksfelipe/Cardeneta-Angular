@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="profileForm">
+            <p>
+                <mat-form-field>
+                    <input formControlName="cpf" type="text" matInput placeholder="cpf" id="cpf"  required>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input formControlName="password" type="password" matInput placeholder="senha" id="password" required>
+                </mat-form-field>
+            </p>
+
+            <div class="button">
+                <button (click)="onSubmit()" type="submit" class="btn btn-primary btn-block" mat-button>Entrar</button>
+                
+            </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>
